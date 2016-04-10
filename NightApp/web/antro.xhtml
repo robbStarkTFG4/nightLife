@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="antroForm">
+
+            <div class="ui-fluid" style="margin: 25px">
+                <center><h2>Antros</h2></center>
+                <p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank">
+                    <p:outputLabel for="nombreField" value="Nombre antro: "/>
+                    <p:inputText id="nombreField" value="#{nm.antro.nombre}" required="true"/>
+
+                    <p:outputLabel for="contactoField" value="Contacto: "/>
+                    <p:inputText id="contactoField" value="#{nm.antro.contacto}"  required="true"/>
+
+                    <p:outputLabel for="descripcionField" value="Descripcion: "/>
+                    <p:inputTextarea id="descripcionField" value="#{nm.antro.descripcion}" required="true"/>
+
+                    <p:outputLabel for="dressField" value="DressCode: "/>
+                    <p:inputText id="dressField" value="#{nm.antro.dressCode}" required="true"/>
+
+                    <p:outputLabel for="dirOneField" value="Direccion 1: "/>
+                    <p:inputText id="dirOneField" value="#{nm.antro.direccion1}" required="true"/>
+
+                    <p:outputLabel for="dirTwoField" value="Direccion 2:"/>
+                    <p:inputText id="dirTwoField" value="#{nm.antro.direccion2}" required="true" />
+
+                    <p:outputLabel for="horarioField" value="Horario: "/>
+                    <p:inputText id="horarioField" value="#{nm.antro.horario}" required="true"/>
+
+                    <p:outputLabel for="puntuacionField" value="Puntuacion"/>
+                    <p:inputText id="puntuacionField" value="#{nm.antro.promedioCalificacion}" required="true" />
+
+                    <p:commandButton value="Guardar" actionListener="#{nm.guardarListener}"/>
+                </p:panelGrid>
+
+                <p:dataTable id="antroTable" var="antro" value="#{nm.antrosList}" reflow="true" style="margin-top:20px">
+                    <f:facet name="header">
+                        Antros en DB
+                    </f:facet>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{antro.nombre}" />
+                    </p:column>
+
+                    <p:column headerText="Descripcion">
+                        <h:outputText value="#{antro.descripcion}" />
+                    </p:column>
+
+                    <p:column headerText="DressCode">
+                        <h:outputText value="#{antro.dressCode}" />
+                    </p:column>
+
+                    <p:column headerText="Horario">
+                        <h:outputText value="#{antro.horario}" />
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+
